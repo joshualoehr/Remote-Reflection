@@ -1,4 +1,4 @@
-package transfer.dummy;
+package transfer.test;
 
 import transfer.client.TransferClient;
 
