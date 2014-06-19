@@ -34,7 +34,7 @@ public class TransferThread extends Thread {
 					
 					Object result = null;
 					boolean match = false;
-					for (Method method: dummyServer.getClass().getMethods()) {
+					for (Method method : dummyServer.getClass().getMethods()) {
 						if (methodNameMatches(method, methodName)) {
 							try {
 								result = method.invoke(dummyServer, params); 
@@ -51,7 +51,6 @@ public class TransferThread extends Thread {
 					Utility.sendObject(out, result);
 					request = in.readUTF();
 				} catch (SocketException e) {
-					System.out.println("ERROR (TransferThread): Connection reset - breaking connection with client.");
 					breakConnection();
 					break;
 				} catch (Exception e) {
@@ -61,11 +60,9 @@ public class TransferThread extends Thread {
 			}
 			
 			if (request.startsWith("break")) {
-				System.out.println("Connection broken intentionally.");
 				breakConnection();
 			}
 		} catch (SocketException e) {
-			System.out.println("ERROR (TransferThread): Connection reset - breaking connection with client.");
 			breakConnection();
 		} catch (Exception e) {
 			e.printStackTrace();

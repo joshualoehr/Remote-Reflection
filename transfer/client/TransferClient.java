@@ -27,9 +27,9 @@ public class TransferClient {
 		String request = "request;" + methodName;
 		
 		try {
-			out.writeUTF(request); // send server the request
-			Utility.sendObject(out, params); // send server parameters
-			Object response = Utility.receiveObject(in); // receive the server's response
+			out.writeUTF(request);
+			Utility.sendObject(out, params);
+			Object response = Utility.receiveObject(in);
 			if (response instanceof Exception) {
 				throw (Exception) response;
 			}

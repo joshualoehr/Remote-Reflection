@@ -6,7 +6,6 @@ public class ClientAPI {
 
 	public static void main(String args[]) {
 		ClientAPI dummyClient = new ClientAPI(new TransferClient("localhost", 8080));
-		//ClientAPI dummyClient = new ClientAPI(new TransferClient());
 		dummyClient.setStuff("Leroy", 34);
 		System.out.println(dummyClient.getName() + " " + dummyClient.getID());
 		dummyClient.breakConnection();
